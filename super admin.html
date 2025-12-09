@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto-Generate Clearance Certificate — Prototype</title>
+  <link rel="stylesheet" href="sup adm.css">
+ 
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <h1>Auto-Generate Clearance Certificate</h1>
+        <p>Create and preview a student clearance certificate (PDF)</p>
+      </div>
+      <div class="small">Background: white • Prototype</div>
+    </header>
+
+    <section class="layout">
+      <div class="card">
+        <form id="certForm" onsubmit="return false">
+          <div>
+            <label for="studentSelect">Select Student</label>
+            <select id="studentSelect" aria-label="Select student">
+              <option value="">-- choose a student --</option>
+              <option value="Alice Rahman|ID202501">Alice Rahman | ID202501</option>
+              <option value="Babu Karim|ID202502">Babu Karim | ID202502</option>
+              <option value="Champa Sultana|ID202503">Champa Sultana | ID202503</option>
+              <option value="Demo Student|ID000001">Demo Student | ID000001</option>
+            </select>
+          </div>
+
+          <div style="margin-top:12px">
+            <label for="clearanceId">Enter Clearance ID</label>
+            <input id="clearanceId" type="text" placeholder="e.g. CLR-2025-0001" />
+          </div>
+
+          <div style="margin-top:12px">
+            <label for="notes">Additional Notes (optional)</label>
+            <input id="notes" type="text" placeholder="Enter short note for certificate (e.g., 'All dues cleared')" />
+          </div>
+
+          <div class="actions">
+            <button id="generateBtn" type="button">Generate & Preview</button>
+            <button id="downloadBtn" type="button" class="secondary" disabled>Download PDF</button>
+            <button id="resetBtn" type="button" class="secondary">Reset</button>
+          </div>
+
+          <div class="small hint">Preview appears on the right. The generated PDF uses the data you select/enter.</div>
+          <div class="footer">Tip: Use the "Download PDF" button after previewing to save the certificate.</div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div>
+            <label style="font-weight:600">Certificate Preview</label>
+            <div class="small">Generated PDF will appear here</div>
+          </div>
+        </div>
+
+        <iframe id="pdfPreview" class="preview-frame" title="Certificate preview"></iframe>
+      </div>
+    </section>
+  </main>
+  <script src="sup adm.js"></script>
+</body>
+</html>
